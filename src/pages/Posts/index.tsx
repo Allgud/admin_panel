@@ -17,7 +17,6 @@ const Posts = () => {
             <AddPostBlock />
             <PostList />
         </div>
-
     )
 }
 
