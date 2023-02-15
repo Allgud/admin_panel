@@ -3,9 +3,11 @@ import * as styles from './styles'
 import { useAppDispatch } from '../../hooks/useAppDispatch'
 import type { FormValues } from '../../redux/types'
 import { getTokensAction } from '../../redux/actions/getTokensAction'
+import { useAppSelector } from '../../hooks/useAppSelector'
 
 const AuthForm = () => {
     const dispatch = useAppDispatch()
+    const { error } = useAppSelector(state => state.authReducer)
 
     const onSubmit = (data: FormValues) => {
         dispatch(getTokensAction(data))
@@ -43,6 +45,7 @@ const AuthForm = () => {
                     Отправить
                 </Button>
             </Form.Item>
+            <Typography.Text type='danger'>{error}</Typography.Text>
         </Form>
     )
 }
